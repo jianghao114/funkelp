@@ -38,3 +38,6 @@ local.properties
 /project.properties
 project.properties
 */project.properties
+appcompat_v7
+Kelp/lint.xml
+Kelp/project.properties
