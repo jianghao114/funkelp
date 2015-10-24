@@ -1,20 +1,18 @@
 package com.kelp.activity;
 
+import java.util.ArrayList;
+
 import com.kelp.R;
-import com.kelp.R.id;
-import com.kelp.R.layout;
-import com.kelp.R.menu;
+import com.kelp.fragment.BuyFragment;
+import com.kelp.fragment.IndentBuyFragment;
+import com.kelp.fragment.UserCenterFragment;
 
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.os.Build;
 
 public class HomeActivity extends ActionBarActivity {
 
@@ -22,29 +20,50 @@ public class HomeActivity extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
-
-		
+		initViews();
+		setAdapter();
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
+	private ViewPager viewPager;
 
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.home, menu);
-		return true;
+	FragmentPagerAdapter adapter;
+	ArrayList<Fragment> fragmentList = new ArrayList<Fragment>();
+
+	private void initViews() {
+		viewPager = (ViewPager) findViewById(R.id.viewPager);
+
 	}
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
+	private void setAdapter() {
+		BuyFragment buyFragment = new BuyFragment();
+		fragmentList.add(buyFragment);
+		IndentBuyFragment indentBuyFragment = new IndentBuyFragment();
+		fragmentList.add(indentBuyFragment);
+		UserCenterFragment userCenterFragment=new UserCenterFragment();
+		fragmentList.add(userCenterFragment);
+		adapter = new KelpFragmentPagerAdapter(getSupportFragmentManager(),
+				fragmentList);
+		viewPager.setAdapter(adapter);
+	}
+
+	public static class KelpFragmentPagerAdapter extends FragmentPagerAdapter {
+		private ArrayList<Fragment> fragmentList;
+
+		public KelpFragmentPagerAdapter(FragmentManager fm,
+				ArrayList<Fragment> fragmentList) {
+			super(fm);
+			this.fragmentList=fragmentList;
 		}
-		return super.onOptionsItemSelected(item);
+
+		@Override
+		public Fragment getItem(int arg0) {
+			return fragmentList == null ? null : fragmentList.get(arg0);
+		}
+
+		@Override
+		public int getCount() {
+			return fragmentList == null ? 0 : fragmentList.size();
+		}
+
 	}
-
-
 }

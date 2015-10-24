@@ -14,12 +14,12 @@ public class UserActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		if (savedInstanceState != null) {
-			getFragmentManager().beginTransaction()
-					.add(userCenterFragment, USER_INFO_TAG).commit();
+		//	getFragmentManager().beginTransaction()
+		//			.add(userCenterFragment, USER_INFO_TAG).commit();
 		} else {
-			userCenterFragment = new UserCenterFragment();
-			getFragmentManager().beginTransaction()
-					.add(userCenterFragment, USER_INFO_TAG).commit();
+		//	userCenterFragment = new UserCenterFragment();
+		//	getFragmentManager().beginTransaction()
+		//			.add(userCenterFragment, USER_INFO_TAG).commit();
 		}
 	}
 }

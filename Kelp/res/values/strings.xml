@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">Kelp</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-
+    <string name="usercenter_indentbuy">帮带</string>
+    <string name="usercenter_buy">求带</string>
+  
 </resources>
