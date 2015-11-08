@@ -2,19 +2,42 @@
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     -->
     <style name="AppBaseTheme" parent="Theme.AppCompat.Light">
         <!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
+            backward-compatibility can go here.
         -->
     </style>
 
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+    <style name="menu_user_style_in_scroll">
+        <item name="android:paddingLeft">10dip</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">44dip</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">@color/menu_item_color</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:drawableRight">@drawable/menu_arrow</item>
+        <item name="android:paddingRight">15dip</item>
+    </style>
+
+    <style name="listViewStyle">
+        <item name="android:cacheColorHint">@color/list_transparent</item>
+        <item name="android:listSelector">@drawable/base_list_selector</item>
+        <item name="android:fadingEdge">none</item>
+        <item name="android:divider">@drawable/rcmd_list_diviver</item>
+        <item name="android:scrollbarThumbVertical">@drawable/base_list_scrollbar_handle</item>
+        <item name="android:fadingEdgeLength">0.0dip</item>
+        <item name="android:alwaysDrawnWithCache">true</item>
+        <item name="android:drawSelectorOnTop">false</item>
+        <item name="android:dividerHeight">1.0dip</item>
     </style>
 
 </resources>
